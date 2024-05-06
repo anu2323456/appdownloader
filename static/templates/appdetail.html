@@ -1,0 +1,26 @@
+{% extends 'userindex.html' %}
+{% block body %}
+<div class="col-6">
+<div class="card">
+    <div class="card-header">
+      
+    </div>
+    <div class="card-body">
+        <img src="{{a.image.url }}" alt="{{ a.name }}" style="max-width: 100px; max-height: 100px;">
+      <h5 class="card-title">{{a.name}}</h5>
+      <p class="card-text">{{a.link}}</p>
+      <p class="card-text">{{a.points}}</p>
+      <form action="{% url 'userinterface:downloadapp' a.name a.points %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="item_id" value="{{ a.name }}">
+        <input type="hidden" name="item_id" value="{{ a.points }}">
+        <!-- Button to trigger form submission -->
+        <button type="submit" class="btn btn-primary">Download Now</button>
+      
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

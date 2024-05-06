@@ -1,0 +1,13 @@
+{% extends 'userindex.html' %}
+{% block body %}
+<div>
+<h3>Number of Tasks Completed</h3><br>
+<h3 style="color: red;">{{number}}</h3><br>
+</div>
+<div>
+{% for i in tasknames %}
+<h3>Downloaded {{i}}</h3><br>
+{% endfor %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends 'userindex.html' %}
+{% block body %}
+
+<div class="row">
+    {% for i in a %}
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body d-flex align-items-center justify-content-between">
+          <div>
+            <img src="{{ i.image.url }}" alt="{{ i.name }}" style="max-width: 100px; max-height: 100px;">
+            <h5 class="card-title">{{ i.name }}</h5>
+          </div>
+          <div style="background-color: lightgreen; padding: 5px 10px; border-radius: 5px;">
+            <h5>Points:{{ i.points }}</h5>
+          </div>
+          <div>
+        </div>
+        <div>
+          <form action="{% url 'userinterface:appdetail' i.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="item_id" value="{{ i.id }}">
+            <!-- Button to trigger form submission -->
+            <button type="submit" class="btn btn-primary">View in Detail</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

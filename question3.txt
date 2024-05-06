@@ -1,0 +1,39 @@
+A. Choice of System for Scheduling Periodic Tasks:
+
+For scheduling periodic tasks, such as downloading a list of ISINs every 24 hours, one reliable and widely-used choice is Celery with Redis or RabbitMQ as the message broker.
+
+Why Celery:
+
+Asynchronous: Celery is well-known for its asynchronous task execution, making it ideal for scheduling periodic tasks without blocking the main application.
+Scalability: Celery can handle large workloads and scale horizontally by adding more worker instances.
+Reliability: Celery provides features like task retry, result persistence, and monitoring tools, ensuring reliability in task execution.
+Flexibility: It supports various brokers (such as Redis, RabbitMQ) and result backends (such as Redis, databases), providing flexibility in configuration based on project requirements.
+Community Support: Celery has a large and active community, providing ongoing support, documentation, and a wide range of extensions.
+Potential Challenges:
+
+Complexity: Setting up and configuring Celery with a message broker can be complex, especially for beginners.
+Resource Intensive: Celery with many workers or large tasks can consume significant system resources.
+Maintenance: Managing and monitoring a Celery cluster requires ongoing maintenance efforts.
+Recommendation for Scale:
+To scale Celery for production, consider implementing task rate limiting, optimizing task execution, and monitoring task performance using tools like Flower or custom monitoring solutions. Additionally, ensure the underlying infrastructure (e.g., Redis or RabbitMQ) is properly configured and scaled to handle increased load.
+
+B. Flask vs Django:
+
+Flask:
+
+Micro-framework: Flask is a lightweight and minimalist web framework, providing essential features for building web applications.
+Flexibility: Flask allows developers to choose components and libraries based on project requirements, providing more flexibility in architecture and design choices.
+Simplicity: Flask is easy to learn and understand, making it suitable for small to medium-sized projects or prototyping.
+RESTful APIs: Flask is commonly used for building RESTful APIs due to its simplicity and flexibility.
+Django:
+
+Full-stack framework: Django is a high-level web framework that comes with built-in features for database management, authentication, and administration.
+Convention over configuration: Django follows the "batteries-included" philosophy, providing a predefined project structure and conventions, which accelerates development and ensures consistency.
+ORM Support: Django includes its ORM (Object-Relational Mapping) for interacting with databases, simplifying database operations and reducing boilerplate code.
+Admin Interface: Django provides a powerful admin interface out-of-the-box, allowing developers to manage application data without writing additional code.
+Use Cases:
+
+Flask: Use Flask for small to medium-sized projects, APIs, or projects requiring high customization and flexibility in architecture.
+Django: Use Django for larger projects, content management systems, e-commerce platforms, or projects where rapid development and built-in features (such as authentication, admin interface) are required.
+Conclusion:
+The choice between Flask and Django depends on project requirements, development preferences, and scalability needs. Flask offers simplicity and flexibility, while Django provides a full-stack solution with built-in features and conventions.
